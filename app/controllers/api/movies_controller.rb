@@ -8,5 +8,5 @@ class Api::MoviesController < ApplicationController
     @movies = Movie.all
     render "all_movies.json.jb"
   end
-  
+
 end
