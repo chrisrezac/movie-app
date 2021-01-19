@@ -8,13 +8,19 @@ Rails.application.routes.draw do
   # end
 
   namespace :api do
-    get "actor_path" => "actors#single_actor_action"
-    get "all_actors_path" => "actors#all_actors_action"
-
-    get "movie_path" => "movies#single_movie_action"
-    get "all_movies_path" => "movies#all_movies_action"
-    
+  
+    get "actors" => "actors#index"
     get "/actors/:id" => "actors#show"
+    post "/actors" => "actors#create"
+    patch "/actors/:id" => "actors#update"
+    delete "/actors/:id" => "actors#destroy"
+
+    get "movies" => "movies#index"
+    get "/movies/:id" => "movies#show"
+    post "/movies" => "movies#create"
+    patch "/movies/:id" => "movies#update"
+    delete "/movies/:id" => "movies#destroy" 
+
   end
 
 end
