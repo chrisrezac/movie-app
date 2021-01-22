@@ -21,6 +21,11 @@ class Api::MoviesController < ApplicationController
     )
     @movie.save
     render "show_movie.json.jb"
+    if @movie.save
+      render "show.json.jb"
+    else
+      render json: { errors: @movie.errors.full_messages }, status: unprocessable_entity
+    end
   end
 
   def update
@@ -35,6 +40,11 @@ class Api::MoviesController < ApplicationController
 
     @movie.save
     render "show_movie.json.jb"
+    if @movie.save
+      render "show.json.jb"
+    else
+      render json: { errors: @movie.errors.full_messages }, status: unprocessable_entity
+    end
   end
 
   def destroy
